@@ -19,7 +19,7 @@ namespace JSONParser
         }
         static void Main(string[] args)
         {
-            var path = Path.Combine(Directory.GetCurrentDirectory(), @"\Report\DataModelSchema.txt");
+            var path = Path.Combine(Directory.GetCurrentDirectory(), @"Report\DataModelSchema.json");
             string builder = @"";
             try
             {
@@ -43,14 +43,17 @@ namespace JSONParser
             Newtonsoft.Json.Linq.JObject json = Newtonsoft.Json.Linq.JObject.Parse(test);
             JsonReader reader = json.CreateReader();
 
-            while (reader.Read())
-            {
-                if (reader.Value != null)
-                {
-                    Console.WriteLine("Token: {0}, Value: {1}", reader.TokenType, reader.Value);
-                }
-            }
+            Console.WriteLine();
 
+            foreach (Newtonsoft.Json.Linq.JObject o in json["model"]["tables"]) {
+                Console.WriteLine("Table Name: {0}", o["name"]);
+                Console.WriteLine("Columns: ");
+                foreach (Newtonsoft.Json.Linq.JObject y in o["columns"]) {
+                    Console.WriteLine(y["name"]);
+                }
+                Console.WriteLine();
+
+            }
             Console.ReadLine();
         }
     }

@@ -53,15 +53,19 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <None Include="Report\DataMashup.json" />
-    <None Include="Report\DataModelSchema.json" />
-    <None Include="Report\DiagramState.json" />
+    <None Include="Report\DataMashup" />
+    <None Include="Report\DiagramState" />
     <None Include="Report\Metadata" />
+    <None Include="Report\Opportunity Analysis Sample PBIX .pbix" />
+    <None Include="Report\Report\Layout" />
+    <None Include="Report\Report\LinguisticSchema" />
     <None Include="Report\SecurityBindings" />
     <None Include="Report\Settings" />
     <None Include="Report\Version" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Report\DataModelSchema.txt" />
+    <Content Include="Report\Report\StaticResources\RegisteredResources\power-bi-obvience-splash18265034002251923.png" />
     <Content Include="Report\[Content_Types].xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
