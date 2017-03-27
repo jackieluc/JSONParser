@@ -19,10 +19,10 @@ namespace JSONParser
         }
         static void Main(string[] args)
         {
-            string builder = "";
+            string builder = @"";
             try
             {
-                using (StreamReader sr = new StreamReader("C:\\Users\\jackieluc\\Documents\\GitHub\\JSONParser\\JSONParser\\JSONParser\\Report\\DataModelSchema.txt"))
+                using (StreamReader sr = new StreamReader(@"C:\Users\kryan\Source\Repos\JSONParser\JSONParser\JSONParser\Report\DataModelSchema.txt"))
                 {
                     while (sr.Peek() >= 0) {
                         builder += sr.ReadLine();
@@ -38,7 +38,18 @@ namespace JSONParser
                     test += c;
                 }
             }
-            Console.WriteLine(test);
+            JsonTextReader reader = new JsonTextReader(new StringReader(test));
+            while (reader.Read())
+            {
+                if (reader.Value != null)
+                    {
+                        Console.WriteLine("Token: {0}, Value: {1}", reader.TokenType, reader.Value);
+                    }
+                else
+            {
+                        Console.WriteLine("Token: {0}", reader.TokenType);
+                    }
+            }
             Console.ReadLine();
         }
     }
