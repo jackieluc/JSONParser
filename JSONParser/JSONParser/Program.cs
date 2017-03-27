@@ -23,7 +23,7 @@ namespace JSONParser
             string builder = @"";
             try
             {
-                using (StreamReader sr = new StreamReader(@"C:\Users\kryan\Source\Repos\JSONParser\JSONParser\JSONParser\Report\DataModelSchema.txt"))
+                using (StreamReader sr = new StreamReader(@"..\..\Report\DataModelSchema.txt"))
                 {
                     while (sr.Peek() >= 0) {
                         builder += sr.ReadLine();
